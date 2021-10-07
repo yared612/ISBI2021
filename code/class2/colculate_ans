@@ -1,0 +1,8 @@
+import pandas as pd
+file_csv = pd.read_csv('/home/yared/文件/ISBI2021/class_2/result/v1/WWW_results.csv')
+m,n = file_csv.shape
+for i in range(0,m):
+    if file_csv.iloc[i,1] < 0.5:
+        for j in range(2,n):
+            file_csv.iloc[i,j] =  (file_csv.iloc[i,j] + 0.035714)/2
+file_csv.to_csv('WWW_results.csv', index=False)
